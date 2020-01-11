@@ -49,8 +49,8 @@ export const helloWorld = functions
         if (form) {
           const username = await form.$x('//table/tbody/tr[1]/td[2]/input')
           const password = await form.$x('//table/tbody/tr[2]/td[2]/input')
-          await (username.length && username[0].type('PussyWagon', { delay: 100 }))
-          await (password.length && password[0].type('rumbling-2sprung-Paw', { delay: 100 }))
+          await (username.length && username[0].type(process.env.USERNAME || '', { delay: 100 }))
+          await (password.length && password[0].type(process.env.PASSWORD || '', { delay: 100 }))
           await form.evaluate(form => form.submit())
         }
 
